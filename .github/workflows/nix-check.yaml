@@ -10,6 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
-      - run: |
+      - name: "nix -L flake check"
+        run: |
           cd echo-server || exit 1
           nix -L flake check
