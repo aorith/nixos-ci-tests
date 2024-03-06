@@ -1,10 +1,14 @@
 {
+  self,
+  pkgs,
+}:
+pkgs.nixosTest {
   name = "Echo Server Service Test";
 
   nodes = {
     # Machine 1: The server that will run the service
     server = {config, ...}: {
-      imports = [../echo-server-module.nix];
+      imports = [self.nixosModules.echo-server];
 
       # Configure the service
       services.echo-server = {

@@ -1,4 +1,5 @@
-{
+{pkgs}:
+pkgs.nixosTest {
   name = "Simple ping test";
 
   nodes = {

@@ -8,7 +8,7 @@
     checks = forAllSystems (system: let
       pkgs = import inputs.nixpkgs {inherit system;};
     in {
-      simple = pkgs.testers.runNixOSTest ./test.nix;
+      simple = pkgs.callPackage ./test.nix {inherit pkgs;};
     });
   };
 }
